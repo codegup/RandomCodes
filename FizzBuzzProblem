@@ -1,0 +1,61 @@
+#include <iostream>
+#include <vector>
+#include <math.h>
+
+using namespace std;
+
+/*
+Given a number n, for each integer i in the range from 1 to n inclusive, print one value per line as follows:
+- if i is a multiple of both 3 and 5, print FizzBuzz
+- if i is a multip0le of 3 but NOT 5, print Fizz
+- if i is a multiple of 5 but NOT 3, print Buzz
+- if i is a multiple of 3 OR 5, print i
+
+Constraints: 0<n<2x10^5
+*/
+
+
+void fizzBuzz(int n) {
+    vector<int> num;
+    int temp = 0;
+    for (int i = 0; i < n; i++) {
+        if (n < 0 || n>(2 * pow(10, 5))) {
+            break;
+        }
+        else {
+            temp += 1;
+            num.push_back(temp);
+
+        }
+    }
+
+    for (int i = 0; i < num.size(); i++) {
+
+        if ((num[i] % 3 == 0) && (num[i] % 5 != 0)) {
+            num.erase(num.begin() + i);
+            cout << "Fizz" << endl;
+        }
+        if ((num[i] % 5 == 0) && (num[i] % 3 != 0)) {
+            num.erase(num.begin() + i);
+            cout << "Buzz" << endl;
+        }
+        if ((num[i] % 5 == 0) && (num[i] % 3 == 0)) {
+            num.erase(num.begin() + 1);
+            cout << "FizzBuzz" << endl;
+        }
+        cout << num[i] << endl;
+
+
+
+    }
+
+
+}
+int main() {
+
+    fizzBuzz(15);
+
+
+
+    return 0;
+}
